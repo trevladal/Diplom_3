@@ -2,6 +2,8 @@ import API_classes.User;
 import API_classes.UserAPI;
 import API_classes.UserSession;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.After;
@@ -38,6 +40,8 @@ public class RegistrationPageTest {
     }
 
     @Test
+    @DisplayName("Check successful registration")
+    @Description("Verifying successful registration")
     public void testSuccessfulRegistration() {
 
         ChromeOptions options = new ChromeOptions();
@@ -66,6 +70,8 @@ public class RegistrationPageTest {
     }
 
     @Test
+    @DisplayName("Check failure registration")
+    @Description("Verifying failure registration with pass <6 characters")
     public void testFailureRegistration() {
 
         ChromeOptions options = new ChromeOptions();

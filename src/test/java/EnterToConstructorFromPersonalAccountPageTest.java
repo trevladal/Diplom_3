@@ -1,6 +1,8 @@
 import API_classes.UserAPI;
 import API_classes.UserSession;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.After;
@@ -33,6 +35,8 @@ public class EnterToConstructorFromPersonalAccountPageTest {
         WebDriverManager.chromedriver().setup();
     }
     @Test
+    @DisplayName("Check successfully entering to constructor from link")
+    @Description("Checking successfully entering to constructor from personal acc page link")
     public void testSuccessfulEnterToConstructorFromHeaderLink() {
 
         ChromeOptions options = new ChromeOptions();
@@ -65,6 +69,8 @@ public class EnterToConstructorFromPersonalAccountPageTest {
         assertThat(driver.getCurrentUrl(), is(BASE_URI));
     }
     @Test
+    @DisplayName("Check successfully entering to constructor from logo")
+    @Description("Checking successfully entering to constructor from personal acc page logo")
     public void testSuccessfulEnterToConstructorFromLogo() {
 
         ChromeOptions options = new ChromeOptions();

@@ -1,6 +1,8 @@
 import API_classes.UserAPI;
 import API_classes.UserSession;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.After;
@@ -35,6 +37,8 @@ public class LogOutTest {
     }
 
     @Test
+    @DisplayName("Check successful log out")
+    @Description("Verifying successful log out")
     public void testSuccessfulLogOut() {
 
         ChromeOptions options = new ChromeOptions();

@@ -1,6 +1,8 @@
 import API_classes.UserAPI;
 import API_classes.UserSession;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import org.junit.After;
 import org.junit.Before;
@@ -25,6 +27,8 @@ public class ConstructorTest {
         WebDriverManager.chromedriver().setup();
     }
     @Test
+    @DisplayName("Check successfully click on constructor tabs")
+    @Description("Checking the possibility of switching tabs in the designer")
     public void testConstructorSection()  {
 
         ChromeOptions options = new ChromeOptions();

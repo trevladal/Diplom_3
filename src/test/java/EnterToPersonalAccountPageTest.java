@@ -1,6 +1,8 @@
 import API_classes.UserAPI;
 import API_classes.UserSession;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.After;
@@ -34,6 +36,8 @@ public class EnterToPersonalAccountPageTest {
         WebDriverManager.chromedriver().setup();
     }
     @Test
+    @DisplayName("Check successful enter to personal acc page")
+    @Description("Checking the possibility of switching to your personal account")
     public void testSuccessfulEnterToPersonalAccountPage() {
 
         ChromeOptions options = new ChromeOptions();

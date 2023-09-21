@@ -1,6 +1,8 @@
 import API_classes.UserAPI;
 import API_classes.UserSession;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.After;
@@ -92,6 +94,8 @@ public class LogInPageTest {
     }
 
     @Test
+    @DisplayName("Check successful log in from forgot password page")
+    @Description("Verifying successful login from the forgotten password page")
     public void testSuccessfulLoginFromForgotPasswordForm() {
 
         ChromeOptions options = new ChromeOptions();
@@ -119,6 +123,8 @@ public class LogInPageTest {
         assertThat(driver.getCurrentUrl(), is(BASE_URI));
     }
     @Test
+    @DisplayName("Check successful log in from register form")
+    @Description("Verifying successful login from the registration page")
     public void testSuccessfulLoginFromRegistrationForm() {
 
         ChromeOptions options = new ChromeOptions();
