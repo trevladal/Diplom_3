@@ -1,9 +1,6 @@
-import API_classes.UserAPI;
-import API_classes.UserSession;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
-import io.restassured.RestAssured;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,9 +24,9 @@ public class ConstructorTest {
         WebDriverManager.chromedriver().setup();
     }
     @Test
-    @DisplayName("Check successfully click on constructor tabs")
-    @Description("Checking the possibility of switching tabs in the designer")
-    public void testConstructorSection()  {
+    @DisplayName("Check successfully click on constructor tab Sauce")
+    @Description("Checking the possibility of switching tab on Sauce")
+    public void testConstructorSectionTabSauce()  {
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
@@ -42,13 +39,40 @@ public class ConstructorTest {
         WebElement webElement = homepage.getWebElement();
         assertThat(webElement.getText(), is("Соусы"));
 
+    }
+    @Test
+    @DisplayName("Check successfully click on constructor tab Filling")
+    @Description("Checking the possibility of switching tab on Filling")
+    public void testConstructorSectionTabFilling()  {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
+        driver.get(BASE_URI);
+
+        Homepage homepage = new Homepage(driver);
+
         homepage.clickFillingLink();
-        webElement = homepage.getWebElement();
+        WebElement webElement = homepage.getWebElement();
         assertThat(webElement.getText(), is("Начинки"));
 
+    }
 
+    @Test
+    @DisplayName("Check successfully click on constructor tab Bun")
+    @Description("Checking the possibility of switching tab on Bun")
+    public void testConstructorSectionTabBun()  {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
+        driver.get(BASE_URI);
+
+        Homepage homepage = new Homepage(driver);
+
+
+        //кликаем сначала на Начинки, чтобы проверить переход обратно на булки, т.к. булки выбраны по дефолту
+        homepage.clickFillingLink();
         homepage.clickBunLink();
-        webElement = homepage.getWebElement();
+        WebElement webElement = homepage.getWebElement();
         assertThat(webElement.getText(), is("Булки"));
 
     }
